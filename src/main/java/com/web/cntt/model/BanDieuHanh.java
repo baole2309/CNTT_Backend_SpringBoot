@@ -8,26 +8,22 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.util.Date;
+import java.util.UUID;
 
 @Data
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name = "cuuSinhVien")
-public class GiangVien extends BaseEntity {
+@Table(name = "banDieuHanh")
+public class BanDieuHanh extends BaseEntity {
     @Id
-    private String maGV;
+    private UUID maBanDieuHanh;
     private String firstName;
     private String lastName;
-    private Date ngayVL;
     private String chucVu;
-    private int heSoLuong;
-    private double mucLuong;
-    private String hocVi;
-    private String gender;
+    private String description;
     private String email;
     private String phoneNumber;
-    private Date birthOfDate;
+    private String image;
 }
