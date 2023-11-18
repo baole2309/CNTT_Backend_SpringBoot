@@ -15,7 +15,7 @@ import java.util.Date;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name = "cuuSinhVien")
+@Table(name = "giangVien")
 public class GiangVien extends BaseEntity {
     @Id
     private String maGV;
