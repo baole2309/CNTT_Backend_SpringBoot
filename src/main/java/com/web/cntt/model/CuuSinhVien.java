@@ -19,8 +19,8 @@ import java.util.UUID;
 public class CuuSinhVien extends BaseEntity {
     @Id
     private String maCuuSV;
-    private String ho;
-    private String ten;
+    private String lastName;
+    private String firstName;
     private String address;
     private String email;
     private String phoneNumber;
