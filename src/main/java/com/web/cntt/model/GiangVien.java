@@ -15,7 +15,7 @@ import java.util.Date;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name = "cuuSinhVien")
+@Table(name = "giangVien")
 public class GiangVien extends BaseEntity {
     @Id
     private String maGV;
@@ -30,4 +30,6 @@ public class GiangVien extends BaseEntity {
     private String email;
     private String phoneNumber;
     private Date birthOfDate;
+
 }
+

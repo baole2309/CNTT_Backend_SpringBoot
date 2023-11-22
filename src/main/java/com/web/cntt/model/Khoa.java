@@ -25,4 +25,46 @@ public class Khoa extends BaseEntity {
 
     @OneToMany(mappedBy = "maKhoa",cascade = CascadeType.ALL)
     private List<Lop> lops = new ArrayList<>();
+
+
+
+    public String getMaKhoa() {
+        return maKhoa;
+    }
+
+    public void setMaKhoa(String maKhoa) {
+        this.maKhoa = maKhoa;
+    }
+
+    public String getTenKhoa() {
+        return tenKhoa;
+    }
+
+    public void setTenKhoa(String tenKhoa) {
+        this.tenKhoa = tenKhoa;
+    }
+
+    public Date getNgayThanhLap() {
+        return ngayThanhLap;
+    }
+
+    public void setNgayThanhLap(Date ngayThanhLap) {
+        this.ngayThanhLap = ngayThanhLap;
+    }
+
+    public String getTruongKhoa() {
+        return truongKhoa;
+    }
+
+    public void setTruongKhoa(String truongKhoa) {
+        this.truongKhoa = truongKhoa;
+    }
+
+    public List<Lop> getLops() {
+        return lops;
+    }
+
+    public void setLops(List<Lop> lops) {
+        this.lops = lops;
+    }
 }
