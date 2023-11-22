@@ -29,18 +29,6 @@ public class CuuSinhVien extends BaseEntity {
     private String phoneNumber;
     private String maUser;
 
-    public CuuSinhVien(String maCuuSV, String ho, String ten, Date ngaySinh, String address, String email, String gioiTinh, String phoneNumber, String maUser) {
-        this.maCuuSV = maCuuSV;
-        this.ho = ho;
-        this.ten = ten;
-        this.ngaySinh = ngaySinh;
-        this.address = address;
-        this.email = email;
-        this.gioiTinh = gioiTinh;
-        this.phoneNumber = phoneNumber;
-        this.maUser = maUser;
-    }
-
     public String getMaCuuSV() {
         return maCuuSV;
     }
