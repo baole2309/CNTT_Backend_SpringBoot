@@ -7,9 +7,8 @@ import java.util.Date;
 @Getter
 @NoArgsConstructor
 @AllArgsConstructor
-public class PostDTO extends AbstractDTO<UserDTO> {
+public class PostDTO extends AbstractDTO<PostDTO> {
 
-    private String maPost;
     private String userId;
     private String noiDung;
     private String chuDe;

@@ -1,12 +1,11 @@
 package com.web.cntt.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.hibernate.annotations.JavaType;
 
 import java.util.Date;
 import java.util.UUID;
@@ -27,7 +26,9 @@ public class CuuSinhVien extends BaseEntity {
     private String email;
     private String gioiTinh;
     private String phoneNumber;
-    private String maUser;
+    @OneToOne
+    @JoinColumn(name = "maUser")
+    private User user;
 
     public String getMaCuuSV() {
         return maCuuSV;
@@ -93,11 +94,11 @@ public class CuuSinhVien extends BaseEntity {
         this.phoneNumber = phoneNumber;
     }
 
-    public String getMaUser() {
-        return maUser;
+    public User getMaUser() {
+        return user;
     }
 
-    public void setMaUser(String maUser) {
-        this.maUser = maUser;
+    public void setMaUser(User user) {
+        this.user = user;
     }
 }

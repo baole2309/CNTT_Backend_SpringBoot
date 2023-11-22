@@ -27,4 +27,52 @@ public class Comment extends BaseEntity {
     @ManyToOne
     @JoinColumn(name = "maPost")
     private Post post;
+
+    public long getIdComment() {
+        return IdComment;
+    }
+
+    public void setIdComment(long idComment) {
+        IdComment = idComment;
+    }
+
+    public long getMaPost() {
+        return maPost;
+    }
+
+    public void setMaPost(long maPost) {
+        this.maPost = maPost;
+    }
+
+    public String getNoiDung() {
+        return noiDung;
+    }
+
+    public void setNoiDung(String noiDung) {
+        this.noiDung = noiDung;
+    }
+
+    public long getUserId() {
+        return userId;
+    }
+
+    public void setUserId(long userId) {
+        this.userId = userId;
+    }
+
+    public Date getNgayBinhLuan() {
+        return ngayBinhLuan;
+    }
+
+    public void setNgayBinhLuan(Date ngayBinhLuan) {
+        this.ngayBinhLuan = ngayBinhLuan;
+    }
+
+    public Post getPost() {
+        return post;
+    }
+
+    public void setPost(Post post) {
+        this.post = post;
+    }
 }
