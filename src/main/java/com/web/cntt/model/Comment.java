@@ -20,7 +20,6 @@ public class Comment extends BaseEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long IdComment;
-    private long maPost;
     private String noiDung;
     private long userId;
     private Date ngayBinhLuan;
@@ -34,14 +33,6 @@ public class Comment extends BaseEntity {
 
     public void setIdComment(long idComment) {
         IdComment = idComment;
-    }
-
-    public long getMaPost() {
-        return maPost;
-    }
-
-    public void setMaPost(long maPost) {
-        this.maPost = maPost;
     }
 
     public String getNoiDung() {
