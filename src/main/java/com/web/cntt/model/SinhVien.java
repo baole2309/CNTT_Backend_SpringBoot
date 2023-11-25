@@ -27,5 +27,5 @@ public class SinhVien extends BaseEntity {
 
     @ManyToOne
     @JoinColumn(name = "maLop")
-    private Lop maLop;
+    private Lop lop;
 }

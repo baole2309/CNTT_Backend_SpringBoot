@@ -1,27 +1,25 @@
 package com.web.cntt.model;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-
-import java.security.SecureRandom;
+import lombok.*;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.UUID;
 
 @Data
+@EqualsAndHashCode(callSuper = true)
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
 @Table(name = "lop")
-public class Lop extends BaseEntity{
+public class Lop extends BaseEntity {
+
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private UUID id;
+
     private String maLop;
     private String tenLop;
     private Date ngayTL;
@@ -29,10 +27,7 @@ public class Lop extends BaseEntity{
     private String truongLop;
     private int siSo;
 
-    @ManyToOne
-    @JoinColumn(name = "maKhoa")
-    private Khoa maKhoa;
-
-    @OneToMany(mappedBy = "maLop",cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "lop", cascade = CascadeType.ALL)
     private List<SinhVien> sinhViens = new ArrayList<>();
 }
+
