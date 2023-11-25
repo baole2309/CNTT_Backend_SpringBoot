@@ -6,4 +6,5 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface LopRepository extends JpaRepository<Lop,String> {
+    public Lop findLopByMaLop(String maLop);
 }

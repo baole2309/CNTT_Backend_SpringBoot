@@ -20,6 +20,8 @@ import java.util.UUID;
 @Table(name = "lop")
 public class Lop extends BaseEntity{
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private UUID id;
     private String maLop;
     private String tenLop;
     private Date ngayTL;
