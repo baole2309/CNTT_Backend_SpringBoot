@@ -6,4 +6,5 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface GiangVienRepository extends JpaRepository<GiangVien,String> {
+    public GiangVien findGiangVienByMaGV(String maGV);
 }

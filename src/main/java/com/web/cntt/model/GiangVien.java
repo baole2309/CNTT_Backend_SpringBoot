@@ -28,9 +28,5 @@ public class GiangVien extends BaseEntity {
     private String sdt;
     private String email;
     private Date ngaySinh;
-
-    @ManyToOne
-    @JoinColumn(name = "maKhoa")
-    private Khoa khoa;
 }
 

@@ -7,7 +7,8 @@ import java.util.Date;
 @Getter
 @NoArgsConstructor
 @AllArgsConstructor
-public class GiangVienDTO   extends AbstractDTO<GiangVienDTO> {
+public class GiangVienDTO extends AbstractDTO<GiangVienDTO> {
+    private String maGV;
     private String ho;
     private String ten;
     private Date ngayVL;
@@ -18,6 +19,5 @@ public class GiangVienDTO   extends AbstractDTO<GiangVienDTO> {
     private String sdt;
     private String email;
     private Date ngaySinh;
-    private String maKhoa;
 }
 

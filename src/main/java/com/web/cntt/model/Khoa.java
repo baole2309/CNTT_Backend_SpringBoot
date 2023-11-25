@@ -25,7 +25,5 @@ public class Khoa extends BaseEntity {
     private Date ngayThanhLap;
     private String truongKhoa;
 
-    @OneToMany(mappedBy = "khoa", cascade = CascadeType.ALL)
-    private List<GiangVien> giangViens = new ArrayList<>();
 }
 

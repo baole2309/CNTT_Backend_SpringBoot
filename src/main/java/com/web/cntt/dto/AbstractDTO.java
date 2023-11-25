@@ -13,7 +13,6 @@ import java.util.List;
 @NoArgsConstructor
 public class AbstractDTO<T>{
 
-    private Long id;
     private String createBy;
     private Date createDate;
     private String modifiedBy;

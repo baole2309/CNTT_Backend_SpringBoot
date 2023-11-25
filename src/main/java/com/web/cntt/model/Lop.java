@@ -19,7 +19,6 @@ public class Lop extends BaseEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private UUID id;
-
     private String maLop;
     private String tenLop;
     private Date ngayTL;
