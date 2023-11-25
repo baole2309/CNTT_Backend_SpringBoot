@@ -8,11 +8,9 @@ import lombok.Setter;
 import java.util.Date;
 import java.util.UUID;
 
-@MappedSuperclass
-@Data
 @Getter
 @Setter
-public class BaseEntity {
+public abstract class BaseEntity {
 
     @Column
     private String createBy;

@@ -1,15 +1,14 @@
 package com.web.cntt.model;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.UUID;
 
+@EqualsAndHashCode(callSuper = true)
 @Data
 @Builder
 @NoArgsConstructor
@@ -18,6 +17,8 @@ import java.util.List;
 @Table(name = "khoa")
 public class Khoa extends BaseEntity {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private UUID id;
     private String maKhoa;
     private String tenKhoa;
     private Date ngayThanhLap;
@@ -27,44 +28,4 @@ public class Khoa extends BaseEntity {
     private List<Lop> lops = new ArrayList<>();
 
 
-
-    public String getMaKhoa() {
-        return maKhoa;
-    }
-
-    public void setMaKhoa(String maKhoa) {
-        this.maKhoa = maKhoa;
-    }
-
-    public String getTenKhoa() {
-        return tenKhoa;
-    }
-
-    public void setTenKhoa(String tenKhoa) {
-        this.tenKhoa = tenKhoa;
-    }
-
-    public Date getNgayThanhLap() {
-        return ngayThanhLap;
-    }
-
-    public void setNgayThanhLap(Date ngayThanhLap) {
-        this.ngayThanhLap = ngayThanhLap;
-    }
-
-    public String getTruongKhoa() {
-        return truongKhoa;
-    }
-
-    public void setTruongKhoa(String truongKhoa) {
-        this.truongKhoa = truongKhoa;
-    }
-
-    public List<Lop> getLops() {
-        return lops;
-    }
-
-    public void setLops(List<Lop> lops) {
-        this.lops = lops;
-    }
 }

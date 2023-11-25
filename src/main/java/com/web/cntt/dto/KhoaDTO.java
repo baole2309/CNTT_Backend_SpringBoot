@@ -8,6 +8,7 @@ import java.util.Date;
 @NoArgsConstructor
 @AllArgsConstructor
 public class KhoaDTO  extends AbstractDTO<KhoaDTO> {
+    private String maKhoa;
     private String tenKhoa;
     private Date ngayTL;
     private String truongKhoa;
