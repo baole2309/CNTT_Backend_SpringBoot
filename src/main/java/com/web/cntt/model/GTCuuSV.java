@@ -17,7 +17,7 @@ import java.util.UUID;
 @AllArgsConstructor
 @Entity
 @Table(name = "gtCuuSV")
-public class GTCuuSV {
+public class GTCuuSV extends BaseEntity {
     @Id
     private UUID maGtCuuSV;
     private String title;
