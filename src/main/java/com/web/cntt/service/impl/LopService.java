@@ -10,6 +10,7 @@ import org.springframework.dao.DuplicateKeyException;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.UUID;
 
 @Service
 @Transactional
@@ -39,7 +40,7 @@ public class LopService implements ILopService {
 
     @Override
     public Lop updateLop(LopDTO request, String id) {
-        Lop lop = lopRepository.findById(id).orElseThrow(()
+        Lop lop = lopRepository.findById(UUID.fromString(id)).orElseThrow(()
                 -> new IllegalArgumentException("không thể tìm thấy lớp với :" + id));
         lop.setMaLop(request.getMaLop());
         lop.setTenLop(request.getTenLop());
@@ -61,13 +62,13 @@ public class LopService implements ILopService {
 
     @Override
     public Lop getLopById(String id) {
-        return lopRepository.findById(id).orElseThrow(()
+        return lopRepository.findById(UUID.fromString(id)).orElseThrow(()
                 -> new IllegalArgumentException("không thể tìm thấy lớp với :" + id));
     }
 
     @Override
     public void deleteLop(String id) {
-        Lop lop = lopRepository.findById(id).orElseThrow(()
+        Lop lop = lopRepository.findById(UUID.fromString(id)).orElseThrow(()
                 -> new IllegalArgumentException("không thể tìm thấy lớp với :" + id));
         lopRepository.delete(lop);
         System.out.println("delete success: " + id);

@@ -9,6 +9,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.UUID;
 
 @Service
 @Transactional
@@ -28,7 +29,7 @@ public class KhoaService implements IKhoaService {
 
     @Override
     public Khoa updateKhoa(KhoaDTO request, String id) {
-        Khoa khoa = khoaRepository.findById(id)
+        Khoa khoa = khoaRepository.findById(UUID.fromString(id))
                 .orElseThrow(() -> new IllegalArgumentException("Không tìm thấy Khoa với ID: " + id));
 
         khoa.setMaKhoa(request.getMaKhoa());
@@ -50,13 +51,13 @@ public class KhoaService implements IKhoaService {
 
     @Override
     public Khoa getKhoaById(String id) {
-       return khoaRepository.findById(id)
+       return khoaRepository.findById(UUID.fromString(id))
                 .orElseThrow(() -> new IllegalArgumentException("Không tìm thấy Khoa với ID: " + id));
     }
 
     @Override
     public void deleteKhoa(String id) {
-        Khoa khoa =  khoaRepository.findById(id)
+        Khoa khoa =  khoaRepository.findById(UUID.fromString(id))
                 .orElseThrow(() -> new IllegalArgumentException("Không tìm thấy Khoa với ID: " + id));
         khoaRepository.delete(khoa);
         System.out.println("Delete success: " + id);

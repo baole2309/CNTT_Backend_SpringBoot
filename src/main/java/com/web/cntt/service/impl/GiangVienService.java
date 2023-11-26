@@ -10,6 +10,7 @@ import org.springframework.dao.DuplicateKeyException;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.UUID;
 
 @Service
 @Transactional
@@ -50,7 +51,7 @@ public class GiangVienService implements IGiangVienService {
 
     @Override
     public GiangVien updateGiangVien(GiangVienDTO request, String id) {
-        GiangVien giangVien = giangVienRepository.findById(id).orElseThrow(
+        GiangVien giangVien = giangVienRepository.findById(UUID.fromString(id)).orElseThrow(
                 () -> new IllegalArgumentException("không thể tìm thấy giang viên với id: " +id));
         //set data
         giangVien.setMaGV(request.getMaGV());
@@ -69,13 +70,13 @@ public class GiangVienService implements IGiangVienService {
 
     @Override
     public GiangVien getGiangVienById(String id) {
-        return giangVienRepository.findById(id).orElseThrow(
+        return giangVienRepository.findById(UUID.fromString(id)).orElseThrow(
                 () -> new IllegalArgumentException("không thể tìm thấy giang viên với id: " +id));
     }
 
     @Override
     public void deleteGiangVien(String id) {
-        GiangVien giangVien = giangVienRepository.findById(id).orElseThrow(
+        GiangVien giangVien = giangVienRepository.findById(UUID.fromString(id)).orElseThrow(
                 () -> new IllegalArgumentException("không thể tìm thấy giang viên với id: " +id));
         giangVienRepository.delete(giangVien);
         System.out.println("Delete success: " + id);
