@@ -9,7 +9,7 @@ import lombok.Setter;
 @Getter
 @NoArgsConstructor
 @AllArgsConstructor
-public class AnhNenDTO {
+public class AnhNenDTO extends AbstractDTO<AnhNenDTO> {
     private String name;
     private String resource;
     private String description;
