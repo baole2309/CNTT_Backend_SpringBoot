@@ -7,6 +7,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.util.Date;
+import java.util.UUID;
 
 @Data
 @Builder
@@ -16,6 +17,7 @@ import java.util.Date;
 @Table(name = "sinhVien")
 public class SinhVien extends BaseEntity {
     @Id
+    private UUID id;
     private String maSV;
     private String ho;
     private String ten;

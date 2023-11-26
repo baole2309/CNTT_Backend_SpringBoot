@@ -11,6 +11,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.UUID;
 
 @Service
 @Transactional
@@ -39,7 +40,7 @@ public class SinhVienService implements ISinhVienService {
 
     @Override
     public SinhVien getSinhVienById(String id) {
-        return sinhVienRepository.findById(id).orElseThrow(()
+        return sinhVienRepository.findById(UUID.fromString(id)).orElseThrow(()
                 -> new IllegalArgumentException("không thể tìm thấy sinh viên với :" + id));
     }
 
@@ -65,7 +66,7 @@ public class SinhVienService implements ISinhVienService {
 
     @Override
     public SinhVien updateSinhVien(SinhVienDTO request, String id) {
-        SinhVien sinhVien = sinhVienRepository.findById(id).orElseThrow(()
+        SinhVien sinhVien = sinhVienRepository.findById(UUID.fromString(id)).orElseThrow(()
                 -> new IllegalArgumentException("không thể tìm thấy sinh viên với :" + id));
 
         Lop existingLop = lopRepository.findLopByMaLop(request.getMaLop());
@@ -87,7 +88,7 @@ public class SinhVienService implements ISinhVienService {
 
     @Override
     public void deleteSinhVien(String id) {
-        SinhVien sinhVien = sinhVienRepository.findById(id).orElseThrow(()
+        SinhVien sinhVien = sinhVienRepository.findById(UUID.fromString(id)).orElseThrow(()
                 -> new IllegalArgumentException("không thể tìm thấy sinh viên với :" + id));
         sinhVienRepository.delete(sinhVien);
         System.out.println("delete success:" + id);
