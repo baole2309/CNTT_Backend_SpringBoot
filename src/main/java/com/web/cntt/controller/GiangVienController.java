@@ -1,8 +1,8 @@
 package com.web.cntt.controller;
 
-import com.web.cntt.dto.KhoaDTO;
-import com.web.cntt.model.Khoa;
-import com.web.cntt.service.IKhoaService;
+import com.web.cntt.dto.GiangVienDTO;
+import com.web.cntt.model.GiangVien;
+import com.web.cntt.service.IGiangVienService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -13,73 +13,60 @@ import java.util.List;
 @RestController
 @RequestMapping("/api/product")
 //@CrossOrigin(origins = {"http://localhost:3000"})
-//http://localhost:8080/api/product/khoa
+//http://localhost:8080/api/product/giangVien
 @RequiredArgsConstructor
-public class KhoaController {
-    private final IKhoaService khoaService;
-
-    @GetMapping("/khoa")
-    public ResponseEntity<List<Khoa>> getAllKhoa(){
+public class GiangVienController {
+    private final IGiangVienService giangVienService;
+    @GetMapping("/giangVien")
+    public ResponseEntity<List<GiangVien>> getAllSinhVien(){
         try {
-            List<Khoa> result = khoaService.getAllKhoa();
+            List<GiangVien> result = giangVienService.getAllGiangVien();
             return new ResponseEntity<>(result, HttpStatus.OK);
         } catch (Exception e) {
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
-    @GetMapping("/newKhoa")
-    public ResponseEntity<Khoa> getNewKhoa(){
+    @GetMapping ("/giangVien{id}")
+    public ResponseEntity<GiangVien> getKhoaById(@PathVariable("id") String id) {
+
         try {
-            Khoa result = khoaService.getNewKhoa();
+            GiangVien result = giangVienService.getGiangVienById(id);
+
             return new ResponseEntity<>(result, HttpStatus.OK);
         } catch (Exception e) {
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
-    @GetMapping ("/khoa{id}")
-    public ResponseEntity<Khoa> getKhoaById(@PathVariable("id") String id) {
+    @PostMapping("/giangVien")
+    public ResponseEntity<GiangVien> addGiangVien(GiangVienDTO request) {
 
         try {
-            Khoa khoa = khoaService.getKhoaById(id);
-
-            return new ResponseEntity<>(khoa, HttpStatus.OK);
-        } catch (Exception e) {
-            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
-        }
-    }
-
-    @PostMapping("/khoa")
-    public ResponseEntity<Khoa> addKhoa(KhoaDTO request) {
-
-        try {
-            Khoa result = khoaService.addKhoa(request);
+            GiangVien result = giangVienService.addGiangVien(request);
             return new ResponseEntity<>(result, HttpStatus.OK);
         } catch (Exception e) {
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
 
-    @PutMapping("/khoa")
-    public ResponseEntity<Khoa> updateKhoa(@RequestParam KhoaDTO request, @RequestParam String id) {
+    @PutMapping ("/giangVien{id}")
+    public ResponseEntity<GiangVien> updateGiangVien(@RequestParam GiangVienDTO request, @RequestParam String id) {
 
         try {
-            Khoa result = khoaService.updateKhoa(request, id);
+            GiangVien result = giangVienService.updateGiangVien(request, id);
             return new ResponseEntity<>(result, HttpStatus.OK);
         } catch (Exception e) {
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
-
-    @DeleteMapping("/khoa{id}")
+    @DeleteMapping("/giangVien{id}")
     public ResponseEntity<String> deleteKhoa(@PathVariable("id") String id) {
 
         try {
-            khoaService.deleteKhoa(id);
+            giangVienService.deleteGiangVien(id);
 
             return new ResponseEntity<>("delete success", HttpStatus.OK);
         } catch (Exception e) {
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
-
 }
