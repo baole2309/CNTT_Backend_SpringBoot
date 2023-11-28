@@ -7,6 +7,7 @@ import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.parameters.P;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -38,7 +39,7 @@ public class KhoaController {
         }
     }
     @GetMapping ("/khoa{id}")
-    public ResponseEntity<Khoa> getKhoaById(@RequestParam String id) {
+    public ResponseEntity<Khoa> getKhoaById(@PathVariable("id") String id) {
 
         try {
             Khoa khoa = khoaService.getKhoaById(id);
@@ -71,8 +72,8 @@ public class KhoaController {
         }
     }
 
-    @DeleteMapping("/khoa")
-    public ResponseEntity<String> deleteKhoa(@RequestParam String id) {
+    @DeleteMapping("/khoa{id}")
+    public ResponseEntity<String> deleteKhoa(@PathVariable("id") String id) {
 
         try {
             khoaService.deleteKhoa(id);
