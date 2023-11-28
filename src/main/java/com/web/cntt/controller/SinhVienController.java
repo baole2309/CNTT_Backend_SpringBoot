@@ -1,7 +1,6 @@
 package com.web.cntt.controller;
 
 import com.web.cntt.dto.SinhVienDTO;
-import com.web.cntt.model.Lop;
 import com.web.cntt.model.SinhVien;
 import com.web.cntt.service.ISinhVienService;
 import lombok.RequiredArgsConstructor;
