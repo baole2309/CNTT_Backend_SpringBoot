@@ -48,6 +48,12 @@ public class KhoaService implements IKhoaService {
         }
     }
 
+    @Override
+    public Khoa getNewKhoa() {
+            return khoaRepository.findFirstByOrderByCreateDateDesc().orElseThrow(
+                    () ->new IllegalArgumentException("Not found"));
+    }
+
 
     @Override
     public Khoa getKhoaById(String id) {
