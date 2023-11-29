@@ -41,6 +41,7 @@ public class ThongBaoService implements IThongBaoService {
     @Override
     public ThongBao addThongBao(ThongBaoDTO request) {
         ThongBao thongBao = new ThongBao();
+        thongBao.setId(UUID.randomUUID());
         thongBao.setTitle(request.getTitle());
         thongBao.setContent(request.getContent());
         thongBao.setTime(request.getTime());

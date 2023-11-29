@@ -29,6 +29,7 @@ public class GioiThieuService implements IGioiThieuService {
     @Override
     public GioiThieu addGioiThieu(GioiThieuDTO request) {
         GioiThieu gioiThieu = new GioiThieu();
+        gioiThieu.setId(UUID.randomUUID());
         gioiThieu.setTongQuan(request.getTongQuan());
         gioiThieu.setCTrDaoTao(request.getCTrDaoTao());
         gioiThieu.setCoSoVatChat(request.getCoSoVatChat());

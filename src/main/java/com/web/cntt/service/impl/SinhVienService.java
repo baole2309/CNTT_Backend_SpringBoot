@@ -49,6 +49,7 @@ public class SinhVienService implements ISinhVienService {
         Lop existingLop = lopRepository.findLopByMaLop(request.getMaLop());
         if(existingLop != null){
             SinhVien sinhVien = new SinhVien();
+            sinhVien.setId(UUID.randomUUID());
             sinhVien.setLop(existingLop);
             sinhVien.setMaSV(request.getMaSV());
             sinhVien.setHo(request.getHo());

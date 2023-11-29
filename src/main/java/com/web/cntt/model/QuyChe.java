@@ -24,7 +24,7 @@ public class QuyChe {
     @Id
     @Column(columnDefinition = "VARCHAR(36)")
     @JdbcTypeCode(SqlTypes.VARCHAR)
-    private UUID maQuyChe;
+    private UUID id;
     private String tenQuyChe;
     private String content;
     private Date ngayApDung;

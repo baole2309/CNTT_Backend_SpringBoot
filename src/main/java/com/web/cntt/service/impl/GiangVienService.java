@@ -32,6 +32,7 @@ public class GiangVienService implements IGiangVienService {
         if(existingGV != null){
             GiangVien giangVien = new GiangVien();
             //setData
+            giangVien.setId(UUID.randomUUID());
             giangVien.setMaGV(request.getMaGV());
             giangVien.setHo(request.getHo());
             giangVien.setTen(request.getTen());

@@ -45,6 +45,7 @@ public class AnhNenService implements IAnhNenService {
     @Override
     public AnhNen addAnhNen(AnhNenDTO request) {
         AnhNen anhNen = new AnhNen();
+        anhNen.setId(UUID.randomUUID());
         anhNen.setName(request.getName());
         anhNen.setDescription(request.getDescription());
         anhNen.setResource(request.getResource());

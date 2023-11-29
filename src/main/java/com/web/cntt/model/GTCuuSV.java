@@ -24,7 +24,7 @@ public class GTCuuSV extends BaseEntity {
     @Id
     @Column(columnDefinition = "VARCHAR(36)")
     @JdbcTypeCode(SqlTypes.VARCHAR)
-    private UUID maGtCuuSV;
+    private UUID id;
     private String title;
     private String description;
     private String aim;

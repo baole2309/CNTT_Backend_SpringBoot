@@ -20,6 +20,7 @@ public class KhoaService implements IKhoaService {
     @Override
     public Khoa addKhoa(KhoaDTO request) {
         Khoa khoa = new Khoa();
+        khoa.setId(UUID.randomUUID());
         khoa.setMaKhoa(request.getMaKhoa());
         khoa.setTenKhoa(request.getTenKhoa());
         khoa.setNgayThanhLap(request.getNgayTL());

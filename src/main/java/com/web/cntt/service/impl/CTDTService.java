@@ -20,6 +20,7 @@ public class CTDTService implements ICTDaoTaoService {
     @Override
     public CTDaoTao addCTDaoTao(CTDaoTaoDTO request) {
         CTDaoTao ctDaoTao = new CTDaoTao();
+        ctDaoTao.setId(UUID.randomUUID());
         ctDaoTao.setName(request.getName());
         ctDaoTao.setDescription(request.getDescription());
         ctDaoTao.setImage(request.getImage());

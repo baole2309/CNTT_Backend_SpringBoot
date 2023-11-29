@@ -24,6 +24,7 @@ public class LopService implements ILopService {
 
         if (existingLop == null) {
             Lop lop = new Lop();
+            lop.setId(UUID.randomUUID());
             lop.setMaLop(request.getMaLop());
             lop.setTenLop(request.getTenLop());
             lop.setNgayTL(request.getNgayTL());
