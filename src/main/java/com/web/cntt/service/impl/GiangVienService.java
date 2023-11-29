@@ -29,7 +29,7 @@ public class GiangVienService implements IGiangVienService {
     @Override
     public GiangVien addGiangVien(GiangVienDTO request) {
         GiangVien existingGV = giangVienRepository.findGiangVienByMaGV(request.getMaGV());
-        if(existingGV != null){
+        if(existingGV == null){
             GiangVien giangVien = new GiangVien();
             //setData
             giangVien.setId(UUID.randomUUID());

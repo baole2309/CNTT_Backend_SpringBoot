@@ -36,15 +36,15 @@ public class ThongBaoController {
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
-    @GetMapping("/thongBao/{name}")
-    public ResponseEntity<ThongBao> getThongBaoByName(@PathVariable("name") String name){
-        try {
-            ThongBao result = thongBaoService.getThongBaoByName(name);
-            return new ResponseEntity<>(result, HttpStatus.OK);
-        } catch (Exception e) {
-            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
-        }
-    }
+//    @GetMapping("/thongBao/{name}")
+//    public ResponseEntity<ThongBao> getThongBaoByName(@PathVariable("name") String name){
+//        try {
+//            ThongBao result = thongBaoService.getThongBaoByName(name);
+//            return new ResponseEntity<>(result, HttpStatus.OK);
+//        } catch (Exception e) {
+//            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+//        }
+//    }
     @DeleteMapping("/thongBao/{id}")
     public ResponseEntity<String> deleteThongBaoById(@PathVariable("id") String id){
         try {

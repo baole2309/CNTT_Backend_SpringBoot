@@ -45,7 +45,7 @@ public class CTDaoTaoController {
         }
     }
     @PostMapping("/ctDaoTao")
-    public ResponseEntity<CTDaoTao> addThongBao(@RequestParam CTDaoTaoDTO request){
+    public ResponseEntity<CTDaoTao> addThongBao(@RequestBody CTDaoTaoDTO request){
         try {
             CTDaoTao result = ctDaoTaoService.addCTDaoTao(request);
             return new ResponseEntity<>(result, HttpStatus.OK);
@@ -55,7 +55,7 @@ public class CTDaoTaoController {
     }
 
     @PutMapping("/ctDaoTao/{id}")
-    public ResponseEntity<CTDaoTao> updateThongBao(@RequestParam CTDaoTaoDTO request, @PathVariable("id") String id){
+    public ResponseEntity<CTDaoTao> updateThongBao(@RequestBody CTDaoTaoDTO request, @PathVariable("id") String id){
         try {
             CTDaoTao result = ctDaoTaoService.updateCTDaoTao(request, id);
             return new ResponseEntity<>(result, HttpStatus.OK);

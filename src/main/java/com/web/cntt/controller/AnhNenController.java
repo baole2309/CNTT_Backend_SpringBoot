@@ -37,15 +37,15 @@ public class AnhNenController {
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
-    @GetMapping("/anhNen/{name}")
-    public ResponseEntity<AnhNen> getAnhNenByName(@PathVariable("name") String name){
-        try {
-            AnhNen result = anhNenService.getAnhNenByName(name);
-            return new ResponseEntity<>(result, HttpStatus.OK);
-        } catch (Exception e) {
-            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
-        }
-    }
+//    @GetMapping("/anhNen/{name}")
+//    public ResponseEntity<AnhNen> getAnhNenByName(@PathVariable("name") String name){
+//        try {
+//            AnhNen result = anhNenService.getAnhNenByName(name);
+//            return new ResponseEntity<>(result, HttpStatus.OK);
+//        } catch (Exception e) {
+//            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+//        }
+//    }
 
     @PostMapping("/anhNen")
     public ResponseEntity<AnhNen> addBanDH(@RequestBody AnhNenDTO request) {

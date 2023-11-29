@@ -38,7 +38,7 @@ public class GiangVienController {
         }
     }
     @PostMapping("/giangVien")
-    public ResponseEntity<GiangVien> addGiangVien(GiangVienDTO request) {
+    public ResponseEntity<GiangVien> addGiangVien(@RequestBody GiangVienDTO request) {
 
         try {
             GiangVien result = giangVienService.addGiangVien(request);
@@ -49,7 +49,7 @@ public class GiangVienController {
     }
 
     @PutMapping ("/giangVien/{id}")
-    public ResponseEntity<GiangVien> updateGiangVien(@RequestParam GiangVienDTO request, @PathVariable("id") String id) {
+    public ResponseEntity<GiangVien> updateGiangVien(@RequestBody GiangVienDTO request, @PathVariable("id") String id) {
 
         try {
             GiangVien result = giangVienService.updateGiangVien(request, id);

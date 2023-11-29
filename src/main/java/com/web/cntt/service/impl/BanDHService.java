@@ -1,6 +1,7 @@
 package com.web.cntt.service.impl;
 
 import com.web.cntt.dto.BanDieuHanhDTO;
+import com.web.cntt.dto.PagingDTO;
 import com.web.cntt.model.BanDieuHanh;
 import com.web.cntt.repository.BanDieuHanhRepository;
 import com.web.cntt.service.IBanDHService;
@@ -54,7 +55,6 @@ public class BanDHService implements IBanDHService {
         banDieuHanh.setCreateBy("admin");
         banDieuHanh.setModifiedBy("");
         banDieuHanh.setCreateDate(new Date(System.currentTimeMillis()));
-        banDieuHanh.setModifiedDate(new Date(System.currentTimeMillis()));
         return banDieuHanhRepository.save(banDieuHanh);
     }
 

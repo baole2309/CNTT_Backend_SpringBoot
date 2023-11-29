@@ -38,8 +38,15 @@ public class AnhNenService implements IAnhNenService {
 
     @Override
     public AnhNen getAnhNenById(String id) {
-        return anhNenRepository.findById(UUID.fromString(id)).orElseThrow(
-                () ->new IllegalArgumentException("not found"));
+        try {
+            UUID uuid = UUID.fromString(id);
+            return anhNenRepository.findById(uuid).orElseThrow(
+                    () -> new IllegalArgumentException("không tìm thấy"));
+            // Tiếp tục xử lý
+        } catch (IllegalArgumentException e) {
+            // Xử lý ngoại lệ chuyển đổi không thành công
+            throw new IllegalArgumentException("ID không hợp lệ", e);
+        }
     }
 
     @Override
