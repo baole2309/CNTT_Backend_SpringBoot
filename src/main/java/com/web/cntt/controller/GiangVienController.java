@@ -26,7 +26,7 @@ public class GiangVienController {
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
-    @GetMapping ("/giangVien{id}")
+    @GetMapping ("/giangVien/{id}")
     public ResponseEntity<GiangVien> getKhoaById(@PathVariable("id") String id) {
 
         try {
@@ -48,7 +48,7 @@ public class GiangVienController {
         }
     }
 
-    @PutMapping ("/giangVien{id}")
+    @PutMapping ("/giangVien/{id}")
     public ResponseEntity<GiangVien> updateGiangVien(@RequestParam GiangVienDTO request, @PathVariable("id") String id) {
 
         try {
@@ -58,7 +58,7 @@ public class GiangVienController {
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
-    @DeleteMapping("/giangVien{id}")
+    @DeleteMapping("/giangVien/{id}")
     public ResponseEntity<String> deleteKhoa(@PathVariable("id") String id) {
 
         try {

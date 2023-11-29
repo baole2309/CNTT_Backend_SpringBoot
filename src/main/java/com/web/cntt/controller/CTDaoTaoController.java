@@ -26,7 +26,7 @@ public class CTDaoTaoController {
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
-    @GetMapping("/ctDaoTao{id}")
+    @GetMapping("/ctDaoTao/{id}")
     public ResponseEntity<CTDaoTao> getThongBaoById(@PathVariable("id") String id){
         try {
             CTDaoTao result = ctDaoTaoService.getCTDaoTaoById(id);
@@ -54,7 +54,7 @@ public class CTDaoTaoController {
         }
     }
 
-    @PutMapping("/ctDaoTao{id}")
+    @PutMapping("/ctDaoTao/{id}")
     public ResponseEntity<CTDaoTao> updateThongBao(@RequestParam CTDaoTaoDTO request, @PathVariable("id") String id){
         try {
             CTDaoTao result = ctDaoTaoService.updateCTDaoTao(request, id);
@@ -63,7 +63,7 @@ public class CTDaoTaoController {
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
-    @DeleteMapping("/ctDaoTao{id}")
+    @DeleteMapping("/ctDaoTao/{id}")
     public ResponseEntity<String> deleteCTDaoTaoById(@PathVariable("id") String id){
         try {
             ctDaoTaoService.deleteCTDaoTao(id);

@@ -36,7 +36,7 @@ public class KhoaController {
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
-    @GetMapping ("/khoa{id}")
+    @GetMapping ("/khoa/{id}")
     public ResponseEntity<Khoa> getKhoaById(@PathVariable("id") String id) {
 
         try {
@@ -49,7 +49,7 @@ public class KhoaController {
     }
 
     @PostMapping("/khoa")
-    public ResponseEntity<Khoa> addKhoa(KhoaDTO request) {
+    public ResponseEntity<Khoa> addKhoa(@RequestBody KhoaDTO request) {
 
         try {
             Khoa result = khoaService.addKhoa(request);
@@ -59,8 +59,8 @@ public class KhoaController {
         }
     }
 
-    @PutMapping("/khoa")
-    public ResponseEntity<Khoa> updateKhoa(@RequestParam KhoaDTO request, @RequestParam String id) {
+    @PutMapping("/khoa/{id}")
+    public ResponseEntity<Khoa> updateKhoa(@RequestBody KhoaDTO request, @PathVariable String id) {
 
         try {
             Khoa result = khoaService.updateKhoa(request, id);
@@ -70,7 +70,7 @@ public class KhoaController {
         }
     }
 
-    @DeleteMapping("/khoa{id}")
+    @DeleteMapping("/khoa/{id}")
     public ResponseEntity<String> deleteKhoa(@PathVariable("id") String id) {
 
         try {

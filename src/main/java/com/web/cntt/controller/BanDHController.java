@@ -26,7 +26,7 @@ public class BanDHController {
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
-    @GetMapping ("/banDH{id}")
+    @GetMapping ("/banDH/{id}")
     public ResponseEntity<BanDieuHanh> getBanDHById(@PathVariable("id") String id) {
 
         try {
@@ -39,18 +39,19 @@ public class BanDHController {
     }
 
     @PostMapping("/banDH")
-    public ResponseEntity<BanDieuHanh> addBanDH(BanDieuHanhDTO request) {
+    public ResponseEntity<BanDieuHanh> addBanDH(@RequestBody BanDieuHanhDTO request) {
 
         try {
             BanDieuHanh result = banDHService.addBanDH(request);
             return new ResponseEntity<>(result, HttpStatus.OK);
         } catch (Exception e) {
+            e.printStackTrace();
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
 
-    @PutMapping ("/banDH{id}")
-    public ResponseEntity<BanDieuHanh> updateBanDH(@RequestParam BanDieuHanhDTO request, @PathVariable("id") String id) {
+    @PutMapping ("/banDH/{id}")
+    public ResponseEntity<BanDieuHanh> updateBanDH(@RequestBody BanDieuHanhDTO request, @PathVariable("id") String id) {
 
         try {
             BanDieuHanh result = banDHService.updateBanDH(request, id);
@@ -59,7 +60,7 @@ public class BanDHController {
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
-    @DeleteMapping("/banDH{id}")
+    @DeleteMapping("/banDH/{id}")
     public ResponseEntity<String> deleteBanDH(@PathVariable("id") String id) {
 
         try {

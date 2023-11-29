@@ -26,7 +26,7 @@ public class GioiThieuController {
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
-    @GetMapping ("/gioiThieu{id}")
+    @GetMapping ("/gioiThieu/{id}")
     public ResponseEntity<GioiThieu> getGioiThieuById(@PathVariable("id") String id) {
 
         try {
@@ -47,7 +47,7 @@ public class GioiThieuController {
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
-    @PutMapping ("/gioiThieu{id}")
+    @PutMapping ("/gioiThieu/{id}")
     public ResponseEntity<GioiThieu> updateGioiThieu(@RequestParam GioiThieuDTO request, @PathVariable("id") String id) {
 
         try {
@@ -57,7 +57,7 @@ public class GioiThieuController {
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
-    @DeleteMapping("/gioiThieu{id}")
+    @DeleteMapping("/gioiThieu/{id}")
     public ResponseEntity<String> deleteGioiThieu(@PathVariable("id") String id) {
 
         try {

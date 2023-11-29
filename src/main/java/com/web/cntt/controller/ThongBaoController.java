@@ -27,7 +27,7 @@ public class ThongBaoController {
         }
     }
 
-    @GetMapping("/thongBao{id}")
+    @GetMapping("/thongBao/{id}")
     public ResponseEntity<ThongBao> getThongBaoById(@PathVariable("id") String id){
         try {
             ThongBao result = thongBaoService.getThongBaoById(id);
@@ -36,7 +36,7 @@ public class ThongBaoController {
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
-    @GetMapping("/thongBao{name}")
+    @GetMapping("/thongBao/{name}")
     public ResponseEntity<ThongBao> getThongBaoByName(@PathVariable("name") String name){
         try {
             ThongBao result = thongBaoService.getThongBaoByName(name);
@@ -45,7 +45,7 @@ public class ThongBaoController {
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
-    @DeleteMapping("/thongBao{id}")
+    @DeleteMapping("/thongBao/{id}")
     public ResponseEntity<String> deleteThongBaoById(@PathVariable("id") String id){
         try {
             thongBaoService.deleteThongBao(id);
@@ -56,7 +56,7 @@ public class ThongBaoController {
     }
 
     @PostMapping("/thongBao")
-    public ResponseEntity<ThongBao> addThongBao(@RequestParam ThongBaoDTO request){
+    public ResponseEntity<ThongBao> addThongBao(@RequestBody ThongBaoDTO request){
         try {
             ThongBao result = thongBaoService.addThongBao(request);
             return new ResponseEntity<>(result, HttpStatus.OK);
@@ -65,8 +65,8 @@ public class ThongBaoController {
         }
     }
 
-    @PutMapping("/thongBao{id}")
-    public ResponseEntity<ThongBao> updateThongBao(@RequestParam ThongBaoDTO request, @PathVariable("id") String id){
+    @PutMapping("/thongBao/{id}")
+    public ResponseEntity<ThongBao> updateThongBao(@RequestBody ThongBaoDTO request, @PathVariable("id") String id){
         try {
             ThongBao result = thongBaoService.updateThongBao(request, id);
             return new ResponseEntity<>(result, HttpStatus.OK);

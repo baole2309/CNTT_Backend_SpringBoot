@@ -28,7 +28,7 @@ public class LopController {
         }
     }
 
-    @GetMapping("/lop{id}")
+    @GetMapping("/lop/{id}")
     public ResponseEntity<Lop> getLopById(@PathVariable("id") String id){
         try {
             Lop result = lopService.getLopById(id);
@@ -39,7 +39,7 @@ public class LopController {
     }
 
     @PostMapping("/lop")
-    public ResponseEntity<Lop> addLop(@RequestParam LopDTO request){
+    public ResponseEntity<Lop> addLop(@RequestBody LopDTO request){
         try {
             Lop result = lopService.addLop(request);
             return new ResponseEntity<>(result, HttpStatus.OK);
@@ -48,8 +48,8 @@ public class LopController {
         }
     }
 
-    @PutMapping("/lop{id}")
-    public ResponseEntity<Lop> updateLop(@RequestParam LopDTO request, @PathVariable("id") String id){
+    @PutMapping("/lop/{id}")
+    public ResponseEntity<Lop> updateLop(@RequestBody LopDTO request, @PathVariable("id") String id){
         try {
             Lop result = lopService.updateLop(request, id);
             return new ResponseEntity<>(result, HttpStatus.OK);
@@ -58,7 +58,7 @@ public class LopController {
         }
     }
 
-    @DeleteMapping("/lop{id}")
+    @DeleteMapping("/lop/{id}")
     public ResponseEntity<String> deleteLopById(@PathVariable("id") String id){
         try {
             lopService.deleteLop(id);

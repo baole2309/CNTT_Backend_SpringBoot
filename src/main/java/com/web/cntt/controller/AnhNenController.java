@@ -26,7 +26,7 @@ public class AnhNenController {
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
-    @GetMapping ("/anhNen{id}")
+    @GetMapping ("/anhNen/{id}")
     public ResponseEntity<AnhNen> getAnhNenById(@PathVariable("id") String id) {
 
         try {
@@ -37,7 +37,7 @@ public class AnhNenController {
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
-    @GetMapping("/anhNen{name}")
+    @GetMapping("/anhNen/{name}")
     public ResponseEntity<AnhNen> getAnhNenByName(@PathVariable("name") String name){
         try {
             AnhNen result = anhNenService.getAnhNenByName(name);
@@ -48,7 +48,7 @@ public class AnhNenController {
     }
 
     @PostMapping("/anhNen")
-    public ResponseEntity<AnhNen> addBanDH(AnhNenDTO request) {
+    public ResponseEntity<AnhNen> addBanDH(@RequestBody AnhNenDTO request) {
 
         try {
             AnhNen result = anhNenService.addAnhNen(request);
@@ -58,8 +58,8 @@ public class AnhNenController {
         }
     }
 
-    @PutMapping ("/anhNen{id}")
-    public ResponseEntity<AnhNen> updateBanDH(@RequestParam AnhNenDTO request, @PathVariable("id") String id) {
+    @PutMapping ("/anhNen/{id}")
+    public ResponseEntity<AnhNen> updateBanDH(@RequestBody AnhNenDTO request, @PathVariable("id") String id) {
 
         try {
             AnhNen result = anhNenService.updateAnhNen(request, id);
@@ -68,7 +68,7 @@ public class AnhNenController {
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
-    @DeleteMapping("/anhNen{id}")
+    @DeleteMapping("/anhNen/{id}")
     public ResponseEntity<String> deleteAnhNen(@PathVariable("id") String id) {
 
         try {

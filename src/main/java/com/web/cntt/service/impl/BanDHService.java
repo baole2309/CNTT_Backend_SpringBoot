@@ -28,13 +28,22 @@ public class BanDHService implements IBanDHService {
 
     @Override
     public BanDieuHanh getBanDieuHanhById(String id) {
-        return banDieuHanhRepository.findById(UUID.fromString(id)).orElseThrow(
-                () -> new IllegalArgumentException("không tìm thấy"));
+        try {
+            UUID uuid = UUID.fromString(id);
+            return banDieuHanhRepository.findById(uuid).orElseThrow(
+                    () -> new IllegalArgumentException("không tìm thấy"));
+            // Tiếp tục xử lý
+        } catch (IllegalArgumentException e) {
+            // Xử lý ngoại lệ chuyển đổi không thành công
+            throw new IllegalArgumentException("ID không hợp lệ", e);
+        }
+
     }
 
     @Override
     public BanDieuHanh addBanDH(BanDieuHanhDTO request) {
         BanDieuHanh banDieuHanh = new BanDieuHanh();
+        banDieuHanh.setId(UUID.randomUUID());
         banDieuHanh.setLastName(request.getLastName());
         banDieuHanh.setFirstName(request.getFirstName());
         banDieuHanh.setDescription(request.getDescription());
@@ -42,7 +51,10 @@ public class BanDHService implements IBanDHService {
         banDieuHanh.setChucVu(request.getChucVu());
         banDieuHanh.setImage(request.getImage());
         banDieuHanh.setPhoneNumber(request.getPhoneNumber());
+        banDieuHanh.setCreateBy("admin");
+        banDieuHanh.setModifiedBy("");
         banDieuHanh.setCreateDate(new Date(System.currentTimeMillis()));
+        banDieuHanh.setModifiedDate(new Date(System.currentTimeMillis()));
         return banDieuHanhRepository.save(banDieuHanh);
     }
 
@@ -50,6 +62,7 @@ public class BanDHService implements IBanDHService {
     public BanDieuHanh updateBanDH(BanDieuHanhDTO request, String id) {
         BanDieuHanh banDieuHanh = banDieuHanhRepository.findById(UUID.fromString(id)).orElseThrow(
                 () -> new IllegalArgumentException("không tìm thấy"));
+
         banDieuHanh.setLastName(request.getLastName());
         banDieuHanh.setFirstName(request.getFirstName());
         banDieuHanh.setDescription(request.getDescription());
