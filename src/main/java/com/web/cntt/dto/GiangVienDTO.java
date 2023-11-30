@@ -13,7 +13,7 @@ public class GiangVienDTO extends AbstractDTO<GiangVienDTO> {
     private String ten;
     private Date ngayVL;
     private String chucVu;
-    private int heSoLuong;
+    private double heSoLuong;
     private String hocVi;
     private String gioiTinh;
     private String sdt;
