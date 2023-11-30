@@ -19,7 +19,7 @@ import java.util.UUID;
 @AllArgsConstructor
 @Entity
 @Table(name = "quyChe")
-public class QuyChe {
+public class QuyChe extends BaseEntity{
 
     @Id
     @Column(columnDefinition = "VARCHAR(36)")

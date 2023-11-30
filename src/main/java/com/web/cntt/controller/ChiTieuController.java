@@ -1,8 +1,8 @@
 package com.web.cntt.controller;
 
-import com.web.cntt.dto.GioiThieuDTO;
-import com.web.cntt.model.GioiThieu;
-import com.web.cntt.service.IGioiThieuService;
+import com.web.cntt.dto.ChiTieuDTO;
+import com.web.cntt.model.ChiTieu;
+import com.web.cntt.service.IChiTieuService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -13,57 +13,52 @@ import java.util.List;
 @RestController
 @RequestMapping("/api/product")
 @CrossOrigin(origins = {"http://localhost:3000"})
-//http://localhost:8080/api/product/gioiThieu
+//http://localhost:8080/api/product/chiTieu
 @RequiredArgsConstructor
-public class GioiThieuController {
-    private final IGioiThieuService gioiThieuService;
-    @GetMapping("/gioiThieu")
-    public ResponseEntity<List<GioiThieu>> getAllGioiThieu(){
+public class ChiTieuController {
+    private final IChiTieuService chiTieuService;
+
+    @GetMapping("/chiTieu")
+    public ResponseEntity<List<ChiTieu>> getAllChiTieu(){
         try {
-            List<GioiThieu> result = gioiThieuService.getAllGioiThieu();
+            List<ChiTieu> result = chiTieuService.getAllChiTieu();
             return new ResponseEntity<>(result, HttpStatus.OK);
         } catch (Exception e) {
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
-    @GetMapping ("/gioiThieu/{id}")
-    public ResponseEntity<GioiThieu> getGioiThieuById(@PathVariable("id") String id) {
-
+    @GetMapping("/chiTieu/{id}")
+    public ResponseEntity<ChiTieu> getChiTieuById(@PathVariable("id") String id){
         try {
-            GioiThieu result = gioiThieuService.getGioiThieuById(id);
-
+            ChiTieu result = chiTieuService.getChiTieuById(id);
             return new ResponseEntity<>(result, HttpStatus.OK);
         } catch (Exception e) {
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
-    @PostMapping("/gioiThieu")
-    public ResponseEntity<GioiThieu> addGioiThieu(GioiThieuDTO request) {
-
+    @PostMapping("/chiTieu")
+    public ResponseEntity<ChiTieu> addChiTieu(@RequestBody ChiTieuDTO request){
         try {
-            GioiThieu result = gioiThieuService.addGioiThieu(request);
+            ChiTieu result = chiTieuService.addChiTieu(request);
             return new ResponseEntity<>(result, HttpStatus.OK);
         } catch (Exception e) {
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
-    @PutMapping ("/gioiThieu/{id}")
-    public ResponseEntity<GioiThieu> updateGioiThieu(@RequestParam GioiThieuDTO request, @PathVariable("id") String id) {
-
+    @PutMapping("/chiTieu/{id}")
+    public ResponseEntity<ChiTieu> updateChiTieu(@RequestBody ChiTieuDTO request, @PathVariable("id") String id){
         try {
-            GioiThieu result = gioiThieuService.updateGioiThieu(request, id);
+            ChiTieu result = chiTieuService.updateChiTieu(request, id);
             return new ResponseEntity<>(result, HttpStatus.OK);
         } catch (Exception e) {
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
-    @DeleteMapping("/gioiThieu/{id}")
-    public ResponseEntity<String> deleteGioiThieu(@PathVariable("id") String id) {
-
+    @DeleteMapping("/chiTieu/{id}")
+    public ResponseEntity<String> deleteChiTieuById(@PathVariable("id") String id){
         try {
-            gioiThieuService.deleteGioiThieu(id);
-
-            return new ResponseEntity<>("delete success", HttpStatus.OK);
+            chiTieuService.deleteChiTieu(id);
+            return new ResponseEntity<>("Delete success", HttpStatus.OK);
         } catch (Exception e) {
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }

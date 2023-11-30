@@ -26,7 +26,7 @@ public class ChiTieu extends BaseEntity{
     private UUID id;
     private String maNganh;
     private String tenNganh;
-    private int year;
+    private int nam;
     private double diemChuan;
     private int chiTieu;
 
