@@ -22,6 +22,7 @@ public class Post extends BaseEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long maPost;
     private long userId;
+    @Column(length = 3000)
     private String noiDung;
     private String chuDe;
     private Date ngayDangBai;

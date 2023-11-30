@@ -26,7 +26,9 @@ public class GTCuuSV extends BaseEntity {
     @JdbcTypeCode(SqlTypes.VARCHAR)
     private UUID id;
     private String title;
+    @Column(length = 10000)
     private String description;
+    @Column(length = 10000)
     private String aim;
     private String image;
     private Date ngayTB;

@@ -26,6 +26,7 @@ public class QuyChe extends BaseEntity{
     @JdbcTypeCode(SqlTypes.VARCHAR)
     private UUID id;
     private String tenQuyChe;
+    @Column(length = 10000)
     private String content;
     private Date ngayApDung;
 }

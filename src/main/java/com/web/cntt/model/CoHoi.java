@@ -24,13 +24,21 @@ public class CoHoi {
     @Column(columnDefinition = "VARCHAR(36)")
     @JdbcTypeCode(SqlTypes.VARCHAR)
     private UUID id;
+    @Column(length = 10000)
     private String cHHocTap;
+    @Column(length = 10000)
     private String cHViecLam;
+    @Column(length = 10000)
     private String cHThucTap;
+    @Column(length = 10000)
     private String cHNhanHocBong;
+    @Column(length = 10000)
     private String cHGiaoLuu;
+    @Column(length = 10000)
     private String cHMienPhiNoiTru;
+    @Column(length = 10000)
     private String cHPhatTrien;
+    @Column(length = 10000)
     private String cHHopTac;
 
 }

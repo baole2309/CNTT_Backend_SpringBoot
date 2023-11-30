@@ -26,6 +26,7 @@ public class AnhNen extends BaseEntity{
     private UUID id;
     private String name;
     private String resource;
+    @Column(length = 1000)
     private String description;
 
 }

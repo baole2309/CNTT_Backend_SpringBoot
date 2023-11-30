@@ -8,6 +8,7 @@ import lombok.NoArgsConstructor;
 import org.hibernate.annotations.GenericGenerator;
 import org.hibernate.annotations.JdbcTypeCode;
 import org.hibernate.type.SqlTypes;
+import org.springframework.cache.annotation.CacheConfig;
 
 import java.io.Serial;
 import java.util.UUID;
@@ -33,7 +34,7 @@ public class BanDieuHanh extends BaseEntity {
     @Column(name = "chuc_vu")
     private String chucVu;
 
-    @Column(name = "description")
+    @Column(name = "description", length = 10000)
     private String description;
 
     @Column(name = "email")

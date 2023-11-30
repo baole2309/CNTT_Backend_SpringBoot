@@ -24,8 +24,11 @@ public class GioiThieu extends BaseEntity{
     @Column(columnDefinition = "VARCHAR(36)")
     @JdbcTypeCode(SqlTypes.VARCHAR)
     private UUID id;
+    @Column(length = 3000)
     private String tongQuan;
+    @Column(length = 3000)
     private String CoSoVatChat;
+    @Column(length = 3000)
     private String cTrDaoTao;
 
 }

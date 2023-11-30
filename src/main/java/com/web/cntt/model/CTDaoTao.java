@@ -25,6 +25,7 @@ public class CTDaoTao extends BaseEntity {
     @JdbcTypeCode(SqlTypes.VARCHAR)
     private UUID id;
     private String name;
+    @Column(length = 10000)
     private String description;
     private String image;
 }
