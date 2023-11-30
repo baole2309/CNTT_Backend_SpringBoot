@@ -26,6 +26,7 @@ public class ThongBao extends BaseEntity{
     @JdbcTypeCode(SqlTypes.VARCHAR)
     private UUID id;
     private String title;
+    @Column(length = 10000)
     private String content;
     private Date time;
 }
