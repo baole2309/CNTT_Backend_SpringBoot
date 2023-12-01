@@ -17,6 +17,7 @@ public class SinhVienDTO {
     private String ten;
     private Date ngaySinh;
     private String diaChi;
+    private String schoolYear;
     private String email;
     private String gender;
     private String sdt;
