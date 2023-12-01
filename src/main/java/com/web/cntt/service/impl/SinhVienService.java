@@ -64,6 +64,7 @@ public class SinhVienService implements ISinhVienService {
         sinhVien.setTen(request.getTen());
         sinhVien.setEmail(request.getEmail());
         sinhVien.setGender(request.getGender());
+        sinhVien.setSchoolYear(request.getSchoolYear());
         sinhVien.setNgaySinh(request.getNgaySinh());
         sinhVien.setSdt(request.getSdt());
         sinhVien.setLop(existingLop);
@@ -84,6 +85,7 @@ public class SinhVienService implements ISinhVienService {
             sinhVien.setTen(request.getTen());
             sinhVien.setEmail(request.getEmail());
             sinhVien.setGender(request.getGender());
+            sinhVien.setSchoolYear(request.getSchoolYear());
             sinhVien.setNgaySinh(request.getNgaySinh());
             sinhVien.setSdt(request.getSdt());
             sinhVien.setSdt(request.getSdt());
