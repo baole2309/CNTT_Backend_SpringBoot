@@ -1,5 +1,6 @@
 package com.web.cntt.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.*;
 import org.hibernate.annotations.JdbcTypeCode;
@@ -31,6 +32,7 @@ public class Lop extends BaseEntity {
     private int siSo;
 
     @OneToMany(mappedBy = "lop", cascade = CascadeType.ALL)
+    @JsonIgnore
     private List<SinhVien> sinhViens = new ArrayList<>();
 }
 

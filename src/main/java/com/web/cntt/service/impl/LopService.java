@@ -10,6 +10,7 @@ import org.springframework.dao.DuplicateKeyException;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.UUID;
 
 @Service
@@ -20,9 +21,9 @@ public class LopService implements ILopService {
 
     @Override
     public Lop addLop(LopDTO request) {
-        Lop existingLop = lopRepository.findLopByMaLop(request.getMaLop());
+        Optional<Lop> existingLopOptional = lopRepository.findLopByMaLop(request.getMaLop());
 
-        if (existingLop == null) {
+        if (!existingLopOptional.isPresent()) {
             Lop lop = new Lop();
             lop.setId(UUID.randomUUID());
             lop.setMaLop(request.getMaLop());
@@ -34,9 +35,10 @@ public class LopService implements ILopService {
 
             return lopRepository.save(lop);
         } else {
-            throw new DuplicateKeyException("Mã lớp đã tồn tại: " + request.getMaLop());
+            throw new org.springframework.dao.DuplicateKeyException("Mã lớp đã tồn tại: " + request.getMaLop());
         }
     }
+
 
 
     @Override

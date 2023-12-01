@@ -38,15 +38,15 @@ public class SinhVienController {
         }
     }
 
-    @GetMapping("/sinhVien/{lop}")
-    public ResponseEntity<List<SinhVien>> getSinhVienByLop(@PathVariable("lop") String lop){
-        try {
-            List<SinhVien> result = sinhVienService.getSinhVienByLop(lop);
-            return new ResponseEntity<>(result, HttpStatus.OK);
-        } catch (Exception e) {
-            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
-        }
-    }
+//    @GetMapping("/sinhVien/{lop}")
+//    public ResponseEntity<List<SinhVien>> getSinhVienByLop(@PathVariable("lop") String lop){
+//        try {
+//            List<SinhVien> result = sinhVienService.getSinhVienByLop(lop);
+//            return new ResponseEntity<>(result, HttpStatus.OK);
+//        } catch (Exception e) {
+//            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+//        }
+//    }
 
     @DeleteMapping("/sinhVien/{id}")
     public ResponseEntity<String> deleteSinhVien(@PathVariable("id") String id){
@@ -58,7 +58,7 @@ public class SinhVienController {
         }
     }
 
-    @PutMapping("/sinhVien{id}")
+    @PutMapping("/sinhVien/{id}")
     public ResponseEntity<SinhVien> updateSinhVien(@RequestBody SinhVienDTO request, @PathVariable("id") String id){
         try {
             SinhVien result = sinhVienService.updateSinhVien(request, id);

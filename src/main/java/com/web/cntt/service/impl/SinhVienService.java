@@ -6,11 +6,13 @@ import com.web.cntt.model.SinhVien;
 import com.web.cntt.repository.LopRepository;
 import com.web.cntt.repository.SinhVienRepository;
 import com.web.cntt.service.ISinhVienService;
+import jakarta.persistence.EntityNotFoundException;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.UUID;
 
 @Service
@@ -28,9 +30,11 @@ public class SinhVienService implements ISinhVienService {
         }
     }
 
+
+
     @Override
     public List<SinhVien> getSinhVienByLop(String maLop) {
-        Lop existingLop = lopRepository.findLopByMaLop(maLop);
+        Lop existingLop = lopRepository.findLopByMaLop(maLop).orElseThrow(() -> new IllegalArgumentException("Not found"));
         if(existingLop != null){
             return sinhVienRepository.findSinhVienByLop(existingLop);
         }else {
@@ -46,32 +50,34 @@ public class SinhVienService implements ISinhVienService {
 
     @Override
     public SinhVien addSinhVien(SinhVienDTO request) {
-        Lop existingLop = lopRepository.findLopByMaLop(request.getMaLop());
-        if(existingLop != null){
-            SinhVien sinhVien = new SinhVien();
-            sinhVien.setId(UUID.randomUUID());
-            sinhVien.setLop(existingLop);
-            sinhVien.setMaSV(request.getMaSV());
-            sinhVien.setHo(request.getHo());
-            sinhVien.setTen(request.getTen());
-            sinhVien.setEmail(request.getEmail());
-            sinhVien.setGender(request.getGender());
-            sinhVien.setNgaySinh(request.getNgaySinh());
-            sinhVien.setSdt(request.getSdt());
-            sinhVien.setSdt(request.getSdt());
-            return sinhVienRepository.save(sinhVien);
-        }else {
-            throw new RuntimeException("Không thể tìm thấy lớp");
+        if (request == null) {
+            throw new IllegalArgumentException("Invalid request");
         }
+
+        Lop existingLop = lopRepository.findLopByMaLop(request.getMaLop())
+                .orElseThrow(() -> new EntityNotFoundException("Lop not found"));
+
+        SinhVien sinhVien = new SinhVien();
+        sinhVien.setId(UUID.randomUUID());
+        sinhVien.setMaSV(request.getMaSV());
+        sinhVien.setHo(request.getHo());
+        sinhVien.setTen(request.getTen());
+        sinhVien.setEmail(request.getEmail());
+        sinhVien.setGender(request.getGender());
+        sinhVien.setNgaySinh(request.getNgaySinh());
+        sinhVien.setSdt(request.getSdt());
+        sinhVien.setLop(existingLop);
+
+        return sinhVienRepository.save(sinhVien);
     }
+
 
     @Override
     public SinhVien updateSinhVien(SinhVienDTO request, String id) {
         SinhVien sinhVien = sinhVienRepository.findById(UUID.fromString(id)).orElseThrow(()
                 -> new IllegalArgumentException("không thể tìm thấy sinh viên với :" + id));
 
-        Lop existingLop = lopRepository.findLopByMaLop(request.getMaLop());
-        if(existingLop != null){
+        Lop existingLop = lopRepository.findLopByMaLop(request.getMaLop()).orElseThrow(() -> new IllegalArgumentException("Not found"));
             sinhVien.setLop(existingLop);
             sinhVien.setMaSV(request.getMaSV());
             sinhVien.setHo(request.getHo());
@@ -82,9 +88,7 @@ public class SinhVienService implements ISinhVienService {
             sinhVien.setSdt(request.getSdt());
             sinhVien.setSdt(request.getSdt());
             return sinhVienRepository.save(sinhVien);
-        }else {
-            throw new RuntimeException("Không thể tìm thấy lớp");
-        }
+
     }
 
     @Override

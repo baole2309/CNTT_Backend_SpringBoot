@@ -1,5 +1,6 @@
 package com.web.cntt.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -8,7 +9,7 @@ import lombok.NoArgsConstructor;
 import org.hibernate.annotations.JdbcTypeCode;
 import org.hibernate.type.SqlTypes;
 
-import java.util.Date;
+import java.sql.Date;
 import java.util.UUID;
 
 @Data
@@ -33,5 +34,6 @@ public class SinhVien extends BaseEntity {
 
     @ManyToOne
     @JoinColumn(name = "maLop")
+    @JsonIgnore
     private Lop lop;
 }
