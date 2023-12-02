@@ -20,8 +20,12 @@ public class CnttApplication {
     @Bean
     CommandLineRunner run(UserRepository userRepository, PasswordEncoder passwordEncoder){
         return args -> {
-         userRepository.save(new User(UUID.randomUUID(),"admin","admin",passwordEncoder.encode("12345678"),"19130015@st.hcmuaf.edu.vn", Role.ADMIN));
-
+            String email = "19130015@st.hcmuaf.edu.vn";
+            if(userRepository.findUserByEmail(email) == null) {
+                userRepository.save(new User(UUID.randomUUID(), "admin", "admin", passwordEncoder.encode("12345678"), "19130015@st.hcmuaf.edu.vn", Role.ADMIN));
+            }else {
+                System.out.println("Người dùng đã tồn tại. Không tạo mới.");
+            }
         };
     }
 }

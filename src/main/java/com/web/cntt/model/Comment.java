@@ -1,14 +1,18 @@
 package com.web.cntt.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.hibernate.annotations.JdbcTypeCode;
+import org.hibernate.type.SqlTypes;
 
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.UUID;
 
 @Data
 @Builder
@@ -18,52 +22,18 @@ import java.util.List;
 @Table(name = "comment")
 public class Comment extends BaseEntity {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long IdComment;
+    @Column(columnDefinition = "VARCHAR(36)")
+    @JdbcTypeCode(SqlTypes.VARCHAR)
+    private UUID id;
     private String noiDung;
-    private long userId;
     private Date ngayBinhLuan;
     @ManyToOne
-    @JoinColumn(name = "maPost")
+    @JoinColumn(name = "postId")
     private Post post;
 
-    public long getIdComment() {
-        return IdComment;
-    }
 
-    public void setIdComment(long idComment) {
-        IdComment = idComment;
-    }
-
-    public String getNoiDung() {
-        return noiDung;
-    }
-
-    public void setNoiDung(String noiDung) {
-        this.noiDung = noiDung;
-    }
-
-    public long getUserId() {
-        return userId;
-    }
-
-    public void setUserId(long userId) {
-        this.userId = userId;
-    }
-
-    public Date getNgayBinhLuan() {
-        return ngayBinhLuan;
-    }
-
-    public void setNgayBinhLuan(Date ngayBinhLuan) {
-        this.ngayBinhLuan = ngayBinhLuan;
-    }
-
-    public Post getPost() {
-        return post;
-    }
-
-    public void setPost(Post post) {
-        this.post = post;
-    }
+    @ManyToOne
+    @JoinColumn(name = "userId")
+    @JsonIgnore
+    private User user;
 }

@@ -1,15 +1,18 @@
 package com.web.cntt.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.hibernate.engine.internal.Cascade;
+import org.hibernate.annotations.JdbcTypeCode;
+import org.hibernate.type.SqlTypes;
 
+import java.sql.Date;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
+import java.util.UUID;
 
 @Data
 @Builder
@@ -19,9 +22,9 @@ import java.util.List;
 @Table(name = "post")
 public class Post extends BaseEntity {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long maPost;
-    private long userId;
+    @Column(columnDefinition = "VARCHAR(36)")
+    @JdbcTypeCode(SqlTypes.VARCHAR)
+    private UUID id;
     @Column(length = 3000)
     private String noiDung;
     private String chuDe;
@@ -30,51 +33,8 @@ public class Post extends BaseEntity {
     @OneToMany(mappedBy = "post", cascade = CascadeType.ALL)
     private List<Comment> commentList = new ArrayList<>();
 
-    public long getMaPost() {
-        return maPost;
-    }
-
-    public void setMaPost(long maPost) {
-        this.maPost = maPost;
-    }
-
-    public long getUserId() {
-        return userId;
-    }
-
-    public void setUserId(long userId) {
-        this.userId = userId;
-    }
-
-    public String getNoiDung() {
-        return noiDung;
-    }
-
-    public void setNoiDung(String noiDung) {
-        this.noiDung = noiDung;
-    }
-
-    public String getChuDe() {
-        return chuDe;
-    }
-
-    public void setChuDe(String chuDe) {
-        this.chuDe = chuDe;
-    }
-
-    public Date getNgayDangBai() {
-        return ngayDangBai;
-    }
-
-    public void setNgayDangBai(Date ngayDangBai) {
-        this.ngayDangBai = ngayDangBai;
-    }
-
-    public List<Comment> getCommentList() {
-        return commentList;
-    }
-
-    public void setCommentList(List<Comment> commentList) {
-        this.commentList = commentList;
-    }
+    @ManyToOne
+    @JoinColumn(name = "userId")
+    @JsonIgnore
+    private User user;
 }
