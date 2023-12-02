@@ -9,8 +9,8 @@ import lombok.NoArgsConstructor;
 import org.hibernate.annotations.JdbcTypeCode;
 import org.hibernate.type.SqlTypes;
 
+import java.sql.Date;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 import java.util.UUID;
 
@@ -29,6 +29,7 @@ public class Comment extends BaseEntity {
     private Date ngayBinhLuan;
     @ManyToOne
     @JoinColumn(name = "postId")
+    @JsonIgnore
     private Post post;
 
 
