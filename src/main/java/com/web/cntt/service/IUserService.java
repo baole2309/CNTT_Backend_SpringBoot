@@ -14,5 +14,6 @@ public interface IUserService {
 
     ResponseMessage resetPassword(User user, ResetPassword resetPassword);
 
-    List<UserDTO> getAllAccount();
+    List<User> getAllAccount();
+    ResponseMessage deleteAccount(String userId);
 }
