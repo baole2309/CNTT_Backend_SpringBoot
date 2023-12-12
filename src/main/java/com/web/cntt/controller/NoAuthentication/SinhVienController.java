@@ -1,4 +1,4 @@
-package com.web.cntt.controller;
+package com.web.cntt.controller.NoAuthentication;
 
 import com.web.cntt.dto.SinhVienDTO;
 import com.web.cntt.model.SinhVien;
@@ -48,32 +48,32 @@ public class SinhVienController {
 //        }
 //    }
 
-    @DeleteMapping("/sinhVien/{id}")
-    public ResponseEntity<String> deleteSinhVien(@PathVariable("id") String id){
-        try {
-            sinhVienService.deleteSinhVien(id);
-            return new ResponseEntity<>("Delete success", HttpStatus.OK);
-        } catch (Exception e) {
-            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
-        }
-    }
-
-    @PutMapping("/sinhVien/{id}")
-    public ResponseEntity<SinhVien> updateSinhVien(@RequestBody SinhVienDTO request, @PathVariable("id") String id){
-        try {
-            SinhVien result = sinhVienService.updateSinhVien(request, id);
-            return new ResponseEntity<>(result, HttpStatus.OK);
-        } catch (Exception e) {
-            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
-        }
-    }
-    @PostMapping("/sinhVien")
-    public ResponseEntity<SinhVien> addSinhVien(@RequestBody SinhVienDTO request){
-        try {
-            SinhVien result = sinhVienService.addSinhVien(request);
-            return new ResponseEntity<>(result, HttpStatus.OK);
-        } catch (Exception e) {
-            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
-        }
-    }
+//    @DeleteMapping("/sinhVien/{id}")
+//    public ResponseEntity<String> deleteSinhVien(@PathVariable("id") String id){
+//        try {
+//            sinhVienService.deleteSinhVien(id);
+//            return new ResponseEntity<>("Delete success", HttpStatus.OK);
+//        } catch (Exception e) {
+//            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+//        }
+//    }
+//
+//    @PutMapping("/sinhVien/{id}")
+//    public ResponseEntity<SinhVien> updateSinhVien(@RequestBody SinhVienDTO request, @PathVariable("id") String id){
+//        try {
+//            SinhVien result = sinhVienService.updateSinhVien(request, id);
+//            return new ResponseEntity<>(result, HttpStatus.OK);
+//        } catch (Exception e) {
+//            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+//        }
+//    }
+//    @PostMapping("/sinhVien")
+//    public ResponseEntity<SinhVien> addSinhVien(@RequestBody SinhVienDTO request){
+//        try {
+//            SinhVien result = sinhVienService.addSinhVien(request);
+//            return new ResponseEntity<>(result, HttpStatus.OK);
+//        } catch (Exception e) {
+//            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+//        }
+//    }
 }

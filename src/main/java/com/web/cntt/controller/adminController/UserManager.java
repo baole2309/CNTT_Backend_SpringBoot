@@ -7,6 +7,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -19,6 +20,7 @@ import java.util.List;
 @CrossOrigin(origins = {"http://localhost:3000"})
 //http://localhost:8080/api/admin/user
 @RequiredArgsConstructor
+@Component("adminUserController")
 public class UserManager {
     private final IUserService userService;
     @GetMapping("/user")

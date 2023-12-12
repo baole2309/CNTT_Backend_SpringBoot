@@ -11,6 +11,7 @@ import java.util.List;
 
 public interface IPostService {
     public List<Post> getAllPost(User user);
+    public List<Post> getTopPost(User user);
     public List<Post> getPostByUser(User user);
     public Post getPostById(String id, User user);
     public Post addPost(PostDTO request, User user);

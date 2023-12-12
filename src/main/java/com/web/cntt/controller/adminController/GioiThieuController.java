@@ -1,4 +1,4 @@
-package com.web.cntt.controller;
+package com.web.cntt.controller.adminController;
 
 import com.web.cntt.dto.GioiThieuDTO;
 import com.web.cntt.model.GioiThieu;
@@ -6,15 +6,17 @@ import com.web.cntt.service.IGioiThieuService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/product")
+@RequestMapping("/api/admin")
 @CrossOrigin(origins = {"http://localhost:3000"})
 //http://localhost:8080/api/product/gioiThieu
 @RequiredArgsConstructor
+@Component("adminGioiThieuController")
 public class GioiThieuController {
     private final IGioiThieuService gioiThieuService;
     @GetMapping("/gioiThieu")

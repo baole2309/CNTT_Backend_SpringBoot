@@ -13,6 +13,7 @@ import java.sql.Date;
 @NoArgsConstructor
 @AllArgsConstructor
 public class UserDTO extends AbstractDTO<UserDTO> {
+    private String id;
     private String firstName;
     private String lastName;
     private String email;

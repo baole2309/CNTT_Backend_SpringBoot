@@ -30,6 +30,15 @@ public class PostService implements IPostService {
     }
 
     @Override
+    public List<Post> getTopPost(User user) {
+        try {
+            return postRepository.findTop5ByOrderByCommentListDesc();
+        } catch (Exception e) {
+            throw new RuntimeException("Không thể tải list lớp");
+        }
+    }
+
+    @Override
     public List<Post> getPostByUser(User user) {
         try {
             return postRepository.findPostsByUser(user);

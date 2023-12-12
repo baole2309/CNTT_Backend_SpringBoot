@@ -22,6 +22,7 @@ public class UserService implements IUserService {
     @Override
     public UserDTO getUserInfo(User user) {
         UserDTO userDTO = new UserDTO();
+        userDTO.setId(userDTO.getId());
         userDTO.setFirstName(user.getFirstName());
         userDTO.setLastName(user.getLastName());
         userDTO.setEmail(user.getEmail());

@@ -1,4 +1,4 @@
-package com.web.cntt.controller;
+package com.web.cntt.controller.NoAuthentication;
 
 import com.web.cntt.dto.LopDTO;
 import com.web.cntt.model.Lop;
@@ -38,33 +38,33 @@ public class LopController {
         }
     }
 
-    @PostMapping("/lop")
-    public ResponseEntity<Lop> addLop(@RequestBody LopDTO request){
-        try {
-            Lop result = lopService.addLop(request);
-            return new ResponseEntity<>(result, HttpStatus.OK);
-        } catch (Exception e) {
-            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
-        }
-    }
-
-    @PutMapping("/lop/{id}")
-    public ResponseEntity<Lop> updateLop(@RequestBody LopDTO request, @PathVariable("id") String id){
-        try {
-            Lop result = lopService.updateLop(request, id);
-            return new ResponseEntity<>(result, HttpStatus.OK);
-        } catch (Exception e) {
-            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
-        }
-    }
-
-    @DeleteMapping("/lop/{id}")
-    public ResponseEntity<String> deleteLopById(@PathVariable("id") String id){
-        try {
-            lopService.deleteLop(id);
-            return new ResponseEntity<>("delect success", HttpStatus.OK);
-        } catch (Exception e) {
-            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
-        }
-    }
+//    @PostMapping("/lop")
+//    public ResponseEntity<Lop> addLop(@RequestBody LopDTO request){
+//        try {
+//            Lop result = lopService.addLop(request);
+//            return new ResponseEntity<>(result, HttpStatus.OK);
+//        } catch (Exception e) {
+//            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+//        }
+//    }
+//
+//    @PutMapping("/lop/{id}")
+//    public ResponseEntity<Lop> updateLop(@RequestBody LopDTO request, @PathVariable("id") String id){
+//        try {
+//            Lop result = lopService.updateLop(request, id);
+//            return new ResponseEntity<>(result, HttpStatus.OK);
+//        } catch (Exception e) {
+//            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+//        }
+//    }
+//
+//    @DeleteMapping("/lop/{id}")
+//    public ResponseEntity<String> deleteLopById(@PathVariable("id") String id){
+//        try {
+//            lopService.deleteLop(id);
+//            return new ResponseEntity<>("delect success", HttpStatus.OK);
+//        } catch (Exception e) {
+//            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+//        }
+//    }
 }

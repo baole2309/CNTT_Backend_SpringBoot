@@ -1,4 +1,4 @@
-package com.web.cntt.controller;
+package com.web.cntt.controller.adminController;
 
 import com.web.cntt.dto.ThongBaoDTO;
 import com.web.cntt.model.ThongBao;
@@ -6,15 +6,17 @@ import com.web.cntt.service.IThongBaoService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/product")
+@RequestMapping("/api/admin")
 @CrossOrigin(origins = {"http://localhost:3000"})
-//http://localhost:8080/api/product/thongBao
+//http://localhost:8080/api/admin/user
 @RequiredArgsConstructor
+@Component("adminThongBaoController")
 public class ThongBaoController {
     private final IThongBaoService thongBaoService;
     @GetMapping("/thongBao")
@@ -36,7 +38,7 @@ public class ThongBaoController {
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
-//    @GetMapping("/thongBao/{name}")
+    //    @GetMapping("/thongBao/{name}")
 //    public ResponseEntity<ThongBao> getThongBaoByName(@PathVariable("name") String name){
 //        try {
 //            ThongBao result = thongBaoService.getThongBaoByName(name);
@@ -74,5 +76,4 @@ public class ThongBaoController {
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
-
 }

@@ -1,4 +1,4 @@
-package com.web.cntt.controller;
+package com.web.cntt.controller.NoAuthentication;
 
 import com.web.cntt.dto.AuthenticatedReq;
 import com.web.cntt.dto.AuthenticatedResp;

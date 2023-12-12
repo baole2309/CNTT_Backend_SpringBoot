@@ -50,6 +50,16 @@ public class PostController {
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
+    @GetMapping("/topPost")
+    public ResponseEntity<List<Post>> getTopPost(){
+        try {
+            User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+            List<Post> result = postService.getTopPost(user);
+            return new ResponseEntity<>(result, HttpStatus.OK);
+        } catch (Exception e) {
+            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
     @PostMapping("/post")
     public ResponseEntity<Post> addPost(@RequestBody PostDTO request){
         try {

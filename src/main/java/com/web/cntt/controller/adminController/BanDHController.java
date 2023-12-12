@@ -1,4 +1,4 @@
-package com.web.cntt.controller;
+package com.web.cntt.controller.adminController;
 
 import com.web.cntt.dto.BanDieuHanhDTO;
 import com.web.cntt.model.BanDieuHanh;
@@ -6,15 +6,17 @@ import com.web.cntt.service.IBanDHService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/product")
+@RequestMapping("/api/admin")
 @CrossOrigin(origins = {"http://localhost:3000"})
-//http://localhost:8080/api/product/banDH
+//http://localhost:8080/api/admin/user
 @RequiredArgsConstructor
+@Component("AdminBanDHController")
 public class BanDHController {
     private final IBanDHService banDHService;
     @GetMapping("/banDH")
@@ -72,3 +74,4 @@ public class BanDHController {
         }
     }
 }
+

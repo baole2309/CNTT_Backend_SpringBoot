@@ -1,4 +1,4 @@
-package com.web.cntt.controller;
+package com.web.cntt.controller.adminController;
 
 import com.web.cntt.dto.GTCuuSVDTO;
 import com.web.cntt.model.GTCuuSV;
@@ -6,15 +6,17 @@ import com.web.cntt.service.IGTCuuSVService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/product")
+@RequestMapping("/api/admin")
 @CrossOrigin(origins = {"http://localhost:3000"})
-//http://localhost:8080/api/product/gtCuuSV
+//http://localhost:8080/api/product/gioiThieu
 @RequiredArgsConstructor
+@Component("adminGTCuuSVController")
 public class GTCuuSVController {
     private final IGTCuuSVService gtCuuSVService;
     @GetMapping("/gtCuuSV")

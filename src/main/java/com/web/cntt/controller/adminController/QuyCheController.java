@@ -1,22 +1,22 @@
-package com.web.cntt.controller;
+package com.web.cntt.controller.adminController;
 
 import com.web.cntt.dto.QuyCheDTO;
-import com.web.cntt.dto.SinhVienDTO;
 import com.web.cntt.model.QuyChe;
-import com.web.cntt.model.SinhVien;
 import com.web.cntt.service.IQuyCheService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/product")
+@RequestMapping("/api/admin")
 @CrossOrigin(origins = {"http://localhost:3000"})
-//http://localhost:8080/api/product/quyChe
+//http://localhost:8080/api/admin/user
 @RequiredArgsConstructor
+@Component("adminQuyCheController")
 public class QuyCheController {
     private final IQuyCheService quyCheService;
 
@@ -66,5 +66,4 @@ public class QuyCheController {
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
-
 }
